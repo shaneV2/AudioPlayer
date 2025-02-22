@@ -19,7 +19,7 @@ const Song = ({ song, setIsPlaying, setCurrentSong }) => {
 export default function SongList({ songs, setIsPlaying, setCurrentSong}) {
     const songLength = songs.length
     return (
-        <div className="h-[330px] overflow-y-scroll">
+        <div className="h-[330px] overflow-y-scroll scrollbar">
             <ul className="flex flex-col gap-0.5">
                 {songLength ? 
                     songs.map(song => <Song key={song.id} song={song} setIsPlaying={setIsPlaying} setCurrentSong={setCurrentSong}/>) 

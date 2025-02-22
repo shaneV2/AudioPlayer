@@ -11,6 +11,17 @@ const playNextAudio = (currentSong, setCurrentSong, setIsPlaying) => {
         setIsPlaying(true)
     }
 }   
+const playPrevAudio = (currentSong, setCurrentSong, setIsPlaying) => {
+    const currentAudioIndex = songs.findIndex((song) => song.id == currentSong.id)
+
+    if (currentAudioIndex != 0){
+        setCurrentSong(songs[currentAudioIndex - 1])
+        setIsPlaying(true)
+    }else{
+        setCurrentSong(songs[songs.length - 1])
+        setIsPlaying(true)
+    }
+}   
 
 export default function TogglePlay({ currentSong, setCurrentSong, isPlaying, setIsPlaying }){
     let mediaButton;

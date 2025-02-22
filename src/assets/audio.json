@@ -1,0 +1,56 @@
+[
+    {
+        "id": 0,
+        "title": "Audio1",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio1.mp3"
+    },
+    {
+        "id": 1,
+        "title": "Audio2",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio2.mp3"
+    },
+    {
+        "id": 2,
+        "title": "Audio3",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio3.mp3"
+    },
+    {
+        "id": 3,
+        "title": "Audio4",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio4.mp3"
+    },
+    {
+        "id": 4,
+        "title": "Audio5",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio5.mp3"
+    },
+    {
+        "id": 5,
+        "title": "Audio6",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio6.mp3"
+    },
+    {
+        "id": 6,
+        "title": "Audio7",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio4.mp3"
+    },
+    {
+        "id": 7,
+        "title": "Audio8",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio5.mp3"
+    },
+    {
+        "id": 8,
+        "title": "Audio9",
+        "artist": "Unknown artist",
+        "audio": "/audio/Audio6.mp3"
+    }
+]

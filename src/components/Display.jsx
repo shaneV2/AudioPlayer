@@ -20,11 +20,17 @@ const MinimizedAudioDisplay = ({ songs, currentSong, setCurrentSong, isPlaying, 
     )
 }   
 
-const MaximizedAudioDisplay = ({ currentSong, setCurrentSong, currentTime, setCurrentTime, setMinimized, isPlaying, setIsPlaying, audioDuration}) => {
+const MaximizedAudioDisplay = ({ audio, currentSong, setCurrentSong, currentTime, setCurrentTime, setMinimized, isPlaying, setIsPlaying, audioDuration}) => {
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60)
         const seconds = Math.floor(time % 60)
         return `${minutes}:${seconds.toString().padStart(2, "0")}`
+    }
+
+    const handleTimeSeek = (e) => {
+        const newCurrentAudioTime = Number(e.target.value)
+        setCurrentTime(newCurrentAudioTime)
+        audio.currentTime = newCurrentAudioTime;
     }
 
     return (
@@ -36,7 +42,7 @@ const MaximizedAudioDisplay = ({ currentSong, setCurrentSong, currentTime, setCu
             </Header>
             <div className="w-full h-[200px]">
                 <img className="w-52 h-52 shadow-lg  rounded-sm m-auto bg-red-700 object-contain" src="../src/assets/play.jpg" alt="" />
-            </div>
+            </div>  
             <div className="">
                 <div className="text-center">
                     <p className="font-semibold">{currentSong.title} - {currentSong.artist}</p>
@@ -44,7 +50,7 @@ const MaximizedAudioDisplay = ({ currentSong, setCurrentSong, currentTime, setCu
                 <div className="">
                     <div className="grid grid-cols-[.1fr_1fr_.1fr] items-center">
                         <p className="w-full text-md text-center">{formatTime(currentTime)}</p>
-                        <input className="appearance-none rounded-full w-full h-[1px] bg-slate-400" type="range" name="" id=""/>
+                        <input className="appearance-none rounded-full w-full h-[1px] bg-slate-400" type="range" name="" id="" min="0" max={audioDuration} value={currentTime} onChange={handleTimeSeek}/>
                         <p className="w-full text-md text-center">{formatTime(audioDuration)}</p>
                     </div>
                     <TogglePlay currentSong={currentSong} setCurrentSong={setCurrentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
@@ -54,7 +60,7 @@ const MaximizedAudioDisplay = ({ currentSong, setCurrentSong, currentTime, setCu
     )
 } 
 
-export default function Display({ minimized, setMinimized, songs, currentSong, setCurrentSong, currentTime, setCurrentTime, isPlaying, setIsPlaying, audioDuration }) {
+export default function Display({ minimized, setMinimized, songs, audio, currentSong, setCurrentSong, currentTime, setCurrentTime, isPlaying, setIsPlaying, audioDuration }) {
     if (minimized){
         return ( 
             <div className="grid content-between h-full">
@@ -72,6 +78,7 @@ export default function Display({ minimized, setMinimized, songs, currentSong, s
         return (
             <div className="grid content-between h-full">
                 <MaximizedAudioDisplay
+                    audio={audio}
                     currentSong={currentSong} 
                     setCurrentSong={setCurrentSong}
                     currentTime={currentTime}

@@ -78,6 +78,7 @@ export default function MusicPlayer({ audioRef }) {
                 minimized={minimizedCurrentSongDisplay}
                 setMinimized={setMinimizedCurrentSongDisplay} 
                 songs={songs}
+                audio={audio}
                 currentSong={currentSong}
                 setCurrentSong={setCurrentSong}
                 isPlaying={isPlaying}
